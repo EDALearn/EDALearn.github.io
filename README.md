@@ -1,44 +1,15 @@
 # EDALearn Website Source Code
 
-EDALearn Website Source Code
+EDALearn Website Source Code generated from [gatsby-gitbook-starter](https://github.com/hasura/gatsby-gitbook-starter)
 
-## from gatsby-gitbook-starter
-
-Kick off your project with this starter to create a powerful/flexible docs/tutorial web apps.
-
-![gatsby-gitbook-starter](https://graphql-engine-cdn.hasura.io/learn-hasura/gatsby-gitbook-starter/assets/documentation_app_blog.png)
-
-## Motivation
-
-We wanted to create a [GraphQL tutorial](https://learn.hasura.io) series. The content would be written by developers for various languages/frameworks and what better than writing it in Markdown! And since this is a tutorial series we also needed rich embeds, syntax highlighting and more customisations.
-
-We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https://learn.hasura.io). To serve all these requirements, we decided to use Gatsby + MDX (Markdown + JSX) to extend markdown and used a neat consistent theme like the one at [GitBook](https://www.gitbook.com) and deployed as docker containers.
-
-## 🔥 Features
-- Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
-- GitBook style theme
-- Syntax Highlighting using Prism [`Bonus`: Code diff highlighting]
-- Search Integration with Algolia
-- Progressive Web App, Works Offline
-- Google Analytics Integration
-- Automatically generated sidebar navigation, table of contents, previous/next
-- Dark Mode toggle
-- Edit on Github
-- Fully customisable
-- Rich embeds and live code editor using MDX
-- Easy deployment: Deploy on Netlify / Now.sh / Docker
-
-## 🔗 Live Demo
-
-Here's a [live demo](https://learn.hasura.io/graphql/react)
 
 ## 🚀 Quickstart
 
 Get started by running the following commands:
 
 ```
-$ git clone git@github.com:hasura/gatsby-gitbook-starter.git
-$ cd gatsby-gitbook-starter
+$ git clone https://github.com/EDALearn/EDALearn.github.io.git
+$ cd EDALearn.github.io.git
 $ npm install
 $ npm start
 ```
@@ -144,7 +115,8 @@ metaDescription: "Meta Description Tag for this page"
 
 Canonical URLs are generated automatically.
 
-## ☁️ Deploy
+## ☁️ Deploy To Github Pages
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hasura/gatsby-gitbook-starter)
-
+```bash
+npm run deploy
+```
