@@ -10,8 +10,12 @@ Get started by running the following commands:
 ```
 $ git clone https://github.com/EDALearn/EDALearn.github.io.git
 $ cd EDALearn.github.io.git
-$ npm install
+$ npm install --legacy-peer-deps
 $ npm start
+```
+
+```shell
+npm start
 ```
 
 Visit `http://localhost:8000/` to view the app.

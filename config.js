@@ -25,13 +25,18 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       '/getting-started', // add trailing slash if enabled above
+      '/EDAConcepts',
       '/EDAPatterns',
       '/EDAProjects'
     ],
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
-    links: [{ text: 'First Sidebar Link', link: 'https://github.com/EDALearn/EDALearn.github.io' }],
+    links: [
+      { text: 'AsyncAPI Docs', link: 'https://www.asyncapi.com/docs' },
+      { text: 'EDA Visuals', link: 'https://serverlessland.com/event-driven-architecture/visuals' },
+      /* { text: 'ZenWave 360', link: 'https://www.zenwave360.io/' } */
+    ],
     frontLine: false,
     ignoreIndex: true,
     title: "Learning - Resources",
@@ -40,7 +45,7 @@ const config = {
     title: 'EDALearn',
     description: 'Community Driven Resources and Sample Projects to Learn about Event-Driven Architectures.',
     ogImage: null,
-    docsLocation: '',
+    docsLocation: 'https://github.com/EDALearn/EDALearn.github.io/blob/website/content',
     favicon: '',
   },
   pwa: {

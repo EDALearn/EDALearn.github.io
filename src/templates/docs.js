@@ -100,6 +100,8 @@ export default class MDXRuntimeTest extends Component {
           </Edit>
         </div>
         <StyledMainWrapper>
+          <blockquote>🏗️ This <b>learning repository</b> is a work in progress. <b>Contribute</b> by clicking "Edit on GitHub" and submitting a pull request.
+          </blockquote>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </StyledMainWrapper>
         <div className={'addPaddTopBottom'}>
