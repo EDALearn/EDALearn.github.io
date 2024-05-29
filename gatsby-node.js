@@ -79,6 +79,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     if (value === 'index') {
       value = '';
     }
+    if (node.frontmatter.slug) {
+      value = node.frontmatter.slug;
+    }
 
     if (config.gatsby && config.gatsby.trailingSlash) {
       createNodeField({
@@ -105,5 +108,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       value: node.frontmatter.title || startCase(parent.name),
     });
+
+    function getOrderField() {
+      if (!Number.isNaN(Number(node.frontmatter.order))) {
+        return node.frontmatter.order
+      }
+      return -9999
+    }
+
+    createNodeField({
+      name: 'order',
+      node,
+      value: getOrderField(),
+    })
+
   }
 };
