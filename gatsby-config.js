@@ -24,6 +24,12 @@ const plugins = [
     options: {
       gatsbyRemarkPlugins: [
         {
+          resolve: 'gatsby-remark-markmap',
+          options: {
+            markmap: {/* markmap options */},
+          },
+        },
+        {
           resolve: 'gatsby-remark-mermaid',
           options: /** @type {import('gatsby-remark-mermaid').Options} */ ({
             mermaidConfig: {
