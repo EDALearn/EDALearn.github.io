@@ -59,7 +59,7 @@ const LeftSideBarWidth = styled('div')`
 `;
 
 const RightSideBarWidth = styled('div')`
-  width: 224px;
+  width: 320px;
 `;
 
 const Layout = ({ children, location }) => (

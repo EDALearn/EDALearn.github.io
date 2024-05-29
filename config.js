@@ -30,9 +30,11 @@ const config = {
       '/EDAProjects'
     ],
     collapsedNav: [
-      '/codeblock', // add trailing slash if enabled above
+      '/EDAConcepts',
+      '/EDAPatterns',
     ],
     links: [
+      { text: 'ZenWave 360', link: 'https://www.zenwave360.io/' },
       { text: 'AsyncAPI Docs', link: 'https://www.asyncapi.com/docs' },
       { text: 'EDA Visuals', link: 'https://serverlessland.com/event-driven-architecture/visuals' },
       /* { text: 'ZenWave 360', link: 'https://www.zenwave360.io/' } */

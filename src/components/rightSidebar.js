@@ -37,13 +37,19 @@ const SidebarLayout = ({ location }) => (
             ) {
               if (item.node.tableOfContents.items) {
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
-                  const itemId = innerItem.title
-                    ? innerItem.title.replace(/\s+/g, '').toLowerCase()
-                    : '#';
+                  const itemId = innerItem.title? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
 
                   return (
                     <ListItem key={index} to={`#${itemId}`} level={1}>
                       {innerItem.title}
+                      {
+                        innerItem.items?.map((nestedItem, index) => {
+                          return (
+                            <ul>
+                            <ListItem key={index} to={`#${nestedItem.title.replace(/\s+/g, '').toLowerCase()}`} level={2}>{nestedItem.title}</ListItem>
+                            </ul>);
+                        })
+                      }
                     </ListItem>
                   );
                 });
