@@ -6,17 +6,17 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'EDALearn',
+			logo: {
+				src: './src/assets/event-driven-architectures-logo-transparent.png',
+			},
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/EDALearn',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'EDA Learn Projects',
+					autogenerate: { directory: 'projects' },
 				},
 				{
 					label: 'Reference',
