@@ -9,13 +9,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf dist",
-    "deploy": "npm run clean && astro build && gh-pages -d dist -b main"
+    "deploy": "npm run clean && astro build && gh-pages -d dist -b main --dotfiles"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.31.1",
     "astro": "^5.1.5",
     "gh-pages": "^6.3.0",
-    "mermaid": "^11.4.1",
+    "playwright": "^1.49.1",
+    "rehype-mermaid": "^3.0.0",
     "sharp": "^0.32.5"
   }
 }
