@@ -1,5 +1,5 @@
 {
-  "name": "edalearn-github-io2",
+  "name": "edalearn-github-io",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && gh-pages -d dist -b main"
+    "clean": "rm -rf dist",
+    "deploy": "npm run clean && astro build && gh-pages -d dist -b main"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.31.1",
