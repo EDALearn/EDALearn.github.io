@@ -1,6 +1,6 @@
-## 🚀 Project Structure
+## 🚀 EDALearn Website Source Code
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+This is an Astro + Starlight project, you'll see the following folders and files:
 
 ```
 .
@@ -9,6 +9,9 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 │   ├── assets/
 │   ├── content/
 │   │   ├── docs/
+│   │   │   └── projects/
+│   │   │       ├── Playground_Projects.mdx
+│   │   │       ├── *.mdx <-- Additional project files
 │   └── content.config.ts
 ├── astro.config.mjs
 ├── package.json
