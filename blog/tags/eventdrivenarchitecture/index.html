@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-bguv2lll"> <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>EventDrivenArchitecture | EDALearn</title><link rel="canonical" href="https://edalearn.github.io/blog/tags/eventdrivenarchitecture/"/><link rel="sitemap" href="/sitemap-index.xml"/><link href="https://edalearn.github.io/blog/rss.xml" rel="alternate" title="Blog" type="application/rss+xml"/><link rel="shortcut icon" href="/favicon.png" type="image/png"/><meta name="generator" content="Astro v5.1.7"/><meta name="generator" content="Starlight v0.32.2"/><meta property="og:title" content="EventDrivenArchitecture"/><meta property="og:type" content="article"/><meta property="og:url" content="https://edalearn.github.io/blog/tags/eventdrivenarchitecture/"/><meta property="og:locale" content="en"/><meta property="og:description"/><meta property="og:site_name" content="EDALearn"/><meta name="twitter:card" content="summary_large_image"/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg> <svg aria-hidden="true" class="dark astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg> <svg aria-hidden="true" class="auto astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg> </template><link rel="stylesheet" href="/_astro/print.BJ0teN4y.css" media="print"><style>[data-has-toc] :is(.right-sidebar-panel,mobile-starlight-toc){display:none}[data-has-toc] .main-frame{padding-top:var(--sl-nav-height)}.preview:where(.astro-dr56dw7m){display:flex;flex-direction:column;gap:1.5rem}h2:where(.astro-dr56dw7m){margin-bottom:1.5rem}h2:where(.astro-dr56dw7m) a:where(.astro-dr56dw7m){text-decoration:none}.posts:where(.astro-xaz7kpyh){display:flex;flex-direction:column;gap:3rem}
+.count:where(.astro-bu4jbvld){font-size:var(--sl-text-xl);font-weight:600}
+</style>
+<link rel="stylesheet" href="/_astro/Authors.UNFTKIrl.css"><script type="module" src="/_astro/page.7qqag-5g.js"></script></head> <body class="astro-bguv2lll"> <a href="#_top" class="astro-7q3lir66">Skip to content</a>  <div class="page sl-flex astro-vrdttmbt"> <header class="header astro-vrdttmbt"><div class="header sl-flex astro-kmkmnagf"> <div class="title-wrapper sl-flex astro-kmkmnagf"> <a href="/" class="site-title sl-flex astro-m46x6ez3">  <img class="astro-m46x6ez3" alt src="/_astro/event-driven-architectures-logo-transparent.CkYLPIec.png" width="683" height="683">  <span class="astro-m46x6ez3" translate="no"> EDALearn </span> </a>  </div> <div class="sl-flex print:hidden astro-kmkmnagf"> <site-search class="astro-kmkmnagf astro-v37mnknz" data-translations="{&#34;placeholder&#34;:&#34;Search&#34;}"> <button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" class="astro-v37mnknz"> <svg aria-hidden="true" class="astro-v37mnknz astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg>  <span class="sl-hidden md:sl-block astro-v37mnknz" aria-hidden="true">Search</span> <kbd class="sl-hidden md:sl-flex astro-v37mnknz" style="display: none;"> <kbd class="astro-v37mnknz">Ctrl</kbd><kbd class="astro-v37mnknz">K</kbd> </kbd> </button> <dialog style="padding:0" aria-label="Search" class="astro-v37mnknz"> <div class="dialog-frame sl-flex astro-v37mnknz">  <button data-close-modal class="sl-flex md:sl-hidden astro-v37mnknz"> Cancel </button> <div class="search-container astro-v37mnknz"> <div id="starlight__search" class="astro-v37mnknz"></div> </div> </div> </dialog> </site-search>  <script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.Di8WMhrZ.js"></script>   </div> <div class="sl-hidden md:sl-flex print:hidden right-group astro-kmkmnagf"> <div class="sl-flex social-icons astro-kmkmnagf"> <a href="https://github.com/EDALearn" rel="me" class="sl-flex astro-wy4te6ga"><span class="sr-only astro-wy4te6ga">GitHub</span><svg aria-hidden="true" class="astro-wy4te6ga astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg> </a><a href="https://edalearn.github.io/blog/rss.xml" rel="me" class="sl-flex astro-wy4te6ga"><span class="sr-only astro-wy4te6ga">RSS</span><svg aria-hidden="true" class="astro-wy4te6ga astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M2.88 16.88a3 3 0 0 0 0 4.24 3 3 0 0 0 4.24 0 3 3 0 0 0-4.24-4.24Zm2.83 2.83a1 1 0 0 1-1.42-1.42 1 1 0 0 1 1.42 0 1 1 0 0 1 0 1.42ZM5 12a1 1 0 0 0 0 2 5 5 0 0 1 5 5 1 1 0 0 0 2 0 7 7 0 0 0-7-7Zm0-4a1 1 0 0 0 0 2 9 9 0 0 1 9 9 1 1 0 0 0 2 0 11.08 11.08 0 0 0-3.22-7.78A11.08 11.08 0 0 0 5 8Zm10.61.39A15.11 15.11 0 0 0 5 4a1 1 0 0 0 0 2 13 13 0 0 1 13 13 1 1 0 0 0 2 0 15.11 15.11 0 0 0-4.39-10.61Z"/></svg> </a> </div> <div class="astro-eboeziq4"> <a href="/blog/" class="astro-eboeziq4">Blog</a> </div>  <starlight-theme-select>  <label style="--sl-select-width: 6.25em" class="astro-4yphtoen"> <span class="sr-only astro-4yphtoen">Select theme</span> <svg aria-hidden="true" class="icon label-icon astro-4yphtoen astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg>  <select value="auto" autocomplete="off" class="astro-4yphtoen"> <option value="dark" class="astro-4yphtoen">Dark</option><option value="light" class="astro-4yphtoen">Light</option><option value="auto" selected class="astro-4yphtoen">Auto</option> </select> <svg aria-hidden="true" class="icon caret astro-4yphtoen astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg>  </label>  </starlight-theme-select>  <script>
+	StarlightThemeProvider.updatePickers();
+</script> <script type="module">const r="starlight-theme",o=e=>e==="auto"||e==="dark"||e==="light"?e:"auto",c=()=>o(typeof localStorage<"u"&&localStorage.getItem(r));function n(e){typeof localStorage<"u"&&localStorage.setItem(r,e==="light"||e==="dark"?e:"")}const l=()=>matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";function t(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e==="auto"?l():e,n(e)}matchMedia("(prefers-color-scheme: light)").addEventListener("change",()=>{c()==="auto"&&t("auto")});class s extends HTMLElement{constructor(){super(),t(c()),this.querySelector("select")?.addEventListener("change",a=>{a.currentTarget instanceof HTMLSelectElement&&t(o(a.currentTarget.value))})}}customElements.define("starlight-theme-select",s);</script> <script type="module">class s extends HTMLElement{constructor(){super();const e=this.querySelector("select");e&&(e.addEventListener("change",t=>{t.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=t.currentTarget.value)}),window.addEventListener("pageshow",t=>{if(!t.persisted)return;const n=e.querySelector("option[selected]")?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}}customElements.define("starlight-lang-select",s);</script> </div> </div> </header> <nav class="sidebar print:hidden astro-vrdttmbt" aria-label="Main"> <starlight-menu-button class="print:hidden astro-jif73yzw"> <button aria-expanded="false" aria-label="Menu" aria-controls="starlight__sidebar" class="sl-flex md:sl-hidden astro-jif73yzw"> <svg aria-hidden="true" class="astro-jif73yzw astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg>  </button> </starlight-menu-button> <script type="module">class s extends HTMLElement{constructor(){super(),this.btn=this.querySelector("button"),this.btn.addEventListener("click",()=>this.toggleExpanded());const t=this.closest("nav");t&&t.addEventListener("keyup",e=>this.closeOnEscape(e))}setExpanded(t){this.setAttribute("aria-expanded",String(t)),document.body.toggleAttribute("data-mobile-menu-expanded",t)}toggleExpanded(){this.setExpanded(this.getAttribute("aria-expanded")!=="true")}closeOnEscape(t){t.code==="Escape"&&(this.setExpanded(!1),this.btn.focus())}}customElements.define("starlight-menu-button",s);</script>   <div id="starlight__sidebar" class="sidebar-pane astro-vrdttmbt"> <div class="sidebar-content sl-flex astro-vrdttmbt"> <sl-sidebar-state-persist data-hash="1u4vd4p" class="astro-kku4brbg"> <script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script>  <ul class="top-level astro-3ii7xxms"> <li class="astro-3ii7xxms"> <a href="/blog/" aria-current="false" class="large astro-3ii7xxms"> <span class="astro-3ii7xxms">All posts</span>  </a> </li><li class="astro-3ii7xxms"> <details open class="astro-3ii7xxms"> <sl-sidebar-restore data-index="0"></sl-sidebar-restore> <summary class="astro-3ii7xxms"> <div class="group-label astro-3ii7xxms"> <span class="large astro-3ii7xxms">Recent posts</span>  </div> <svg aria-hidden="true" class="caret astro-3ii7xxms astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg>  </summary> <ul class="astro-3ii7xxms"> <li class="astro-3ii7xxms"> <a href="/blog/2025-03-09-5-critical-eda-health-metrics/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">5 Critical EDA Health Metrics</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-08-event-topic-naming-conventions/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Event Topic Naming Conventions</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-07-implementing-saga-patterns-step-by-step/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Implementing Saga Patterns Step-by-Step</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-06-choreography-vs-orchestration-the-eda-debate/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Choreography vs Orchestration: The EDA Debate</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-05-7-developer-experience-essentials-for-eda/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">7 Developer Experience Essentials for EDA</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-04-eventual-consistency-feature-not-bug/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Eventual Consistency: Feature, Not Bug</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-03-schema-evolution-break-the-compatibility-myth/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Schema Evolution: Break the Compatibility Myth</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-02-how-al-is-reshaping-our-event-architectures/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">How Al is Reshaping Our Event Architectures</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-03-01-event-driven-industrial-lot/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Event-Driven Industrial loT</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/2025-02-28-eda-culture-present-pain-points-future-promise/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">EDA Culture: Present Pain Points, Future Promise</span>  </a> </li> </ul>  </details> </li><li class="astro-3ii7xxms"> <details open class="astro-3ii7xxms"> <sl-sidebar-restore data-index="1"></sl-sidebar-restore> <summary class="astro-3ii7xxms"> <div class="group-label astro-3ii7xxms"> <span class="large astro-3ii7xxms">Tags</span>  </div> <svg aria-hidden="true" class="caret astro-3ii7xxms astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg>  </summary> <ul class="astro-3ii7xxms"> <li class="astro-3ii7xxms"> <a href="/blog/tags/eventdrivenarchitecture/" aria-current="page" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">EventDrivenArchitecture (12)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/engineering/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Engineering (4)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/technology/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Technology (4)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/softwarearchitecture/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">SoftwareArchitecture (3)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/systemdesign/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">SystemDesign (3)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/techleadership/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">TechLeadership (2)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/ai/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">AI (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/api/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">API (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/asyncapi/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">AsyncAPI (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/bestpractices/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">BestPractices (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/changemanagement/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">ChangeManagement (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/choreography/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Choreography (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/dataevolution/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">DataEvolution (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/digitaltransformation/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">DigitalTransformation (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/dx/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">DX (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/engineeringculture/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">EngineeringCulture (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/engineeringpractices/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">EngineeringPractices (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/eventschemas/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">EventSchemas (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/iiot/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">IIoT (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/industry40/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Industry40 (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/innovation/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Innovation (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/iot/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">IoT (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/kafka/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Kafka (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/llm/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">LLM (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/manufacturing/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Manufacturing (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/messaging/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Messaging (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/metrics/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Metrics (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/microservices/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Microservices (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/monitoring/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Monitoring (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/namingconventions/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">NamingConventions (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/opensource/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">OpenSource (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/orchestration/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Orchestration (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/organizationalculture/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">OrganizationalCulture (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/softwaredesign/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">SoftwareDesign (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/standards/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Standards (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/techdebate/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">TechDebate (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/techjourney/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">TechJourney (1)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/tags/unifiednamespace/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">UnifiedNamespace (1)</span>  </a> </li> </ul>  </details> </li><li class="astro-3ii7xxms"> <details open class="astro-3ii7xxms"> <sl-sidebar-restore data-index="2"></sl-sidebar-restore> <summary class="astro-3ii7xxms"> <div class="group-label astro-3ii7xxms"> <span class="large astro-3ii7xxms">Authors</span>  </div> <svg aria-hidden="true" class="caret astro-3ii7xxms astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg>  </summary> <ul class="astro-3ii7xxms"> <li class="astro-3ii7xxms"> <a href="/blog/authors/fran-mendez/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">Fran Mendez (12)</span>  </a> </li><li class="astro-3ii7xxms"> <a href="/blog/authors/edalearn/" aria-current="false" class="astro-3ii7xxms"> <span class="astro-3ii7xxms">EDALearn (1)</span>  </a> </li> </ul>  </details> </li><li class="astro-3ii7xxms"> <a href="/blog/rss.xml" aria-current="false" class="large astro-3ii7xxms"> <span class="astro-3ii7xxms">RSS</span>  </a> </li> </ul>   <script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script> </sl-sidebar-state-persist>  <div class="md:sl-hidden"> <div class="mobile-preferences sl-flex astro-wu23bvmt"> <div class="sl-flex social-icons astro-wu23bvmt"> <a href="https://github.com/EDALearn" rel="me" class="sl-flex astro-wy4te6ga"><span class="sr-only astro-wy4te6ga">GitHub</span><svg aria-hidden="true" class="astro-wy4te6ga astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg> </a><a href="https://edalearn.github.io/blog/rss.xml" rel="me" class="sl-flex astro-wy4te6ga"><span class="sr-only astro-wy4te6ga">RSS</span><svg aria-hidden="true" class="astro-wy4te6ga astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M2.88 16.88a3 3 0 0 0 0 4.24 3 3 0 0 0 4.24 0 3 3 0 0 0-4.24-4.24Zm2.83 2.83a1 1 0 0 1-1.42-1.42 1 1 0 0 1 1.42 0 1 1 0 0 1 0 1.42ZM5 12a1 1 0 0 0 0 2 5 5 0 0 1 5 5 1 1 0 0 0 2 0 7 7 0 0 0-7-7Zm0-4a1 1 0 0 0 0 2 9 9 0 0 1 9 9 1 1 0 0 0 2 0 11.08 11.08 0 0 0-3.22-7.78A11.08 11.08 0 0 0 5 8Zm10.61.39A15.11 15.11 0 0 0 5 4a1 1 0 0 0 0 2 13 13 0 0 1 13 13 1 1 0 0 0 2 0 15.11 15.11 0 0 0-4.39-10.61Z"/></svg> </a> </div> <div class="astro-eboeziq4"> <a href="/blog/" class="astro-eboeziq4">Blog</a> </div>  <starlight-theme-select>  <label style="--sl-select-width: 6.25em" class="astro-4yphtoen"> <span class="sr-only astro-4yphtoen">Select theme</span> <svg aria-hidden="true" class="icon label-icon astro-4yphtoen astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg>  <select value="auto" autocomplete="off" class="astro-4yphtoen"> <option value="dark" class="astro-4yphtoen">Dark</option><option value="light" class="astro-4yphtoen">Light</option><option value="auto" selected class="astro-4yphtoen">Auto</option> </select> <svg aria-hidden="true" class="icon caret astro-4yphtoen astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg>  </label>  </starlight-theme-select>  <script>
+	StarlightThemeProvider.updatePickers();
+</script>   </div>  </div> </div> </div> </nav> <div class="main-frame astro-vrdttmbt">  <script type="module">const a=document.getElementById("starlight__sidebar"),n=a?.querySelector("sl-sidebar-state-persist"),o="sl-sidebar-state",i=()=>{let t=[];const e=n?.dataset.hash||"";try{const s=sessionStorage.getItem(o),r=JSON.parse(s||"{}");Array.isArray(r.open)&&r.hash===e&&(t=r.open)}catch{}return{hash:e,open:t,scroll:a?.scrollTop||0}},c=t=>{try{sessionStorage.setItem(o,JSON.stringify(t))}catch{}},d=()=>c(i()),l=(t,e)=>{const s=i();s.open[e]=t,c(s)};n?.addEventListener("click",t=>{if(!(t.target instanceof Element))return;const e=t.target.closest("summary")?.closest("details");if(!e)return;const s=e.querySelector("sl-sidebar-restore"),r=parseInt(s?.dataset.index||"");isNaN(r)||l(!e.open,r)});addEventListener("visibilitychange",()=>{document.visibilityState==="hidden"&&d()});addEventListener("pageHide",d);</script> <div class="lg:sl-flex astro-67yu43on"> <aside class="right-sidebar-container print:hidden astro-67yu43on"> <div class="right-sidebar astro-67yu43on"> <div class="lg:sl-hidden astro-pb3aqygn"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-doynk5tl"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-doynk5tl"><details id="starlight__mobile-toc" class="astro-doynk5tl"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-doynk5tl"><div class="toggle sl-flex astro-doynk5tl">On this page<svg aria-hidden="true" class="caret astro-doynk5tl astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg> </div><span class="display-current astro-doynk5tl"></span></summary><div class="dropdown astro-doynk5tl"><ul class="isMobile astro-g2bywc46" style="--depth: 0;"> <li class="astro-g2bywc46" style="--depth: 0;"> <a href="#_top" class="astro-g2bywc46" style="--depth: 0;"> <span class="astro-g2bywc46" style="--depth: 0;">Overview</span> </a>  </li> </ul> </div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.CwvHEPnB.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-pb3aqygn"><div class="sl-container astro-pb3aqygn"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul class="astro-g2bywc46" style="--depth: 0;"> <li class="astro-g2bywc46" style="--depth: 0;"> <a href="#_top" class="astro-g2bywc46" style="--depth: 0;"> <span class="astro-g2bywc46" style="--depth: 0;">Overview</span> </a>  </li> </ul> </nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.CxWEh7Yp.js"></script></div></div> </div> </aside> <div class="main-pane astro-67yu43on">  <main class="astro-bguv2lll" lang="en" dir="ltr">    <div class="content-panel astro-7nkwcw3z"> <div class="sl-container astro-7nkwcw3z"> <h1 id="_top" class="astro-j6tvhyss">EventDrivenArchitecture</h1>  </div> </div>  <div class="content-panel astro-7nkwcw3z"> <div class="sl-container astro-7nkwcw3z"> <div class="sl-markdown-content">   <div class="count astro-bu4jbvld">12 posts with the tag “EventDrivenArchitecture”</div>  <div class="posts astro-xaz7kpyh"> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-09-5-critical-eda-health-metrics/" class="astro-dr56dw7m">5 Critical EDA Health Metrics</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-09T00:00:00.000Z" class="astro-2oxtfctb"> Mar 9, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>📊 5 metrics that reveal your EDA is failing
+Most teams track the wrong numbers.
+The warning signs appear long before the system crashes…</p>
+<p>After almost a decade researching and talk about event-driven systems, I’ve identified these five metrics that consistently predict problems:</p>
+<ol>
+<li>Event Processing Lag</li>
+</ol>
+<p>Not just average lag, but the 95th percentile. If this number is growing week over week, you’re heading for trouble.</p>
+<ol start="2">
+<li>Dead Letter Queue Growth Rate</li>
+</ol>
+<p>A healthy system has a stable or decreasing DLQ. If yours is growing, you have design issues that need addressing.</p>
+<ol start="3">
+<li>Schema Evolution Frequency</li>
+</ol>
+<p>Too frequent changes (more than 2-3 per month per event type) indicate poor initial design. Too few changes (less than quarterly) suggest your events aren’t evolving with your business.</p>
+<ol start="4">
+<li>Consumer-to-Producer Ratio</li>
+</ol>
+<p>Ideally 3:1 to 5:1. Higher ratios create bottlenecks if you don’t take governance seriously; lower ratios indicate underutilized events.</p>
+<ol start="5">
+<li>Event Replay Frequency</li>
+</ol>
+<p>If teams frequently need to replay events, your system isn’t delivering reliable processing the first time.</p>
+<p>How to use these metrics:</p>
+<ul>
+<li>Track them weekly, not just monthly</li>
+<li>Set alerts for significant changes</li>
+<li>Analyze trends, not just absolute values</li>
+<li>Compare across different event types</li>
+<li>Use them in team retrospectives</li>
+</ul>
+<p>So remember: The health of your event-driven architecture isn’t measured by uptime alone. These five metrics provide early warning signs that can help you address issues before they become critical failures.</p>
+<p>What metrics do you track for your event-driven systems?</p>
+<p>Share your dashboard setup in the comments!</p>
+<p>#EventDrivenArchitecture #Engineering #Technology #Metrics #Monitoring #SystemDesign #TechLeadership</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-engineering-technology-activity-7304426581043691520-spfJ">5 Critical EDA Health Metrics</a></p>
+<p><img alt="5 Critical EDA Health Metrics" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.CiiAK_mD_2fQlJf.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/engineering/" class="astro-sg3lsd66">Engineering</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/technology/" class="astro-sg3lsd66">Technology</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/metrics/" class="astro-sg3lsd66">Metrics</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/monitoring/" class="astro-sg3lsd66">Monitoring</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/systemdesign/" class="astro-sg3lsd66">SystemDesign</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/techleadership/" class="astro-sg3lsd66">TechLeadership</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-08-event-topic-naming-conventions/" class="astro-dr56dw7m">Event Topic Naming Conventions</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-08T00:00:00.000Z" class="astro-2oxtfctb"> Mar 8, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🔑 5 Topic Naming Conventions that prevent chaos
+Your future self will thank you for getting this right
+The difference between maintainable and nightmarish event systems</p>
+<p>After inheriting several messy event-driven systems, I’ve developed these topic naming conventions that have saved countless hours of confusion:</p>
+<ol>
+<li>The Domain-First Pattern</li>
+</ol>
+<ul>
+<li>Format: <domain>.<entity>.<event></event></entity></domain></li>
+<li>Example: payment.invoice.created</li>
+<li>Why it works: Organizes events by business domain</li>
+</ul>
+<ol start="2">
+<li>The Ownership Pattern</li>
+</ol>
+<ul>
+<li>Format: <team>.<service>.<event></event></service></team></li>
+<li>Example: checkout-team.payment-processor.payment-received</li>
+<li>Why it works: Clear ownership and responsibility</li>
+</ul>
+<ol start="3">
+<li>The Versioned Pattern</li>
+</ol>
+<ul>
+<li>Format: <domain>.<entity>.<event>.v<version></version></event></entity></domain></li>
+<li>Example: inventory.product.updated.v2</li>
+<li>Why it works: Explicit versioning in the topic name</li>
+</ul>
+<ol start="4">
+<li>The Environment-Aware Pattern</li>
+</ol>
+<ul>
+<li>Format: <env>.<domain>.<entity>.<event></event></entity></domain></env></li>
+<li>Example: prod.order.shipment.dispatched</li>
+<li>Why it works: Prevents cross-environment confusion</li>
+</ul>
+<ol start="5">
+<li>The Action-Oriented Pattern</li>
+</ol>
+<ul>
+<li>Format: <entity>.<past-tense-verb></past-tense-verb></entity></li>
+<li>Example: order.placed, payment.processed</li>
+<li>Why it works: Clearly communicates what happened</li>
+</ul>
+<p>Whichever pattern you choose, consistency is key. Document your convention and enforce it through automation, not manual reviews.</p>
+<p>And remember - changing topic naming conventions in a running system is painful. Invest time upfront to get it right.</p>
+<p>So in short: Topic naming isn’t just an aesthetic choice - it’s a critical architectural decision that affects discoverability, maintenance, and system evolution. Choose a convention that reflects your organizational structure and stick to it.</p>
+<p>What naming convention do you use for your event topics?</p>
+<p>Share your approach in the comments!</p>
+<p>#EventDrivenArchitecture #Engineering #Technology #BestPractices #SystemDesign #Kafka #Messaging #NamingConventions</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-engineering-technology-activity-7304064192993529856-hZEb">Event Topic Naming Conventions</a></p>
+<p><img alt="Event Topic Naming Conventions" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.PSMypJY7_1gdoh1.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/engineering/" class="astro-sg3lsd66">Engineering</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/technology/" class="astro-sg3lsd66">Technology</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/bestpractices/" class="astro-sg3lsd66">BestPractices</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/systemdesign/" class="astro-sg3lsd66">SystemDesign</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/kafka/" class="astro-sg3lsd66">Kafka</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/messaging/" class="astro-sg3lsd66">Messaging</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/namingconventions/" class="astro-sg3lsd66">NamingConventions</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-07-implementing-saga-patterns-step-by-step/" class="astro-dr56dw7m">Implementing Saga Patterns Step-by-Step</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-07T00:00:00.000Z" class="astro-2oxtfctb"> Mar 7, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🧵 Saga patterns saved our distributed transactions.
+Maintaining data consistency across microservices is hard.
+Here’s how to implement Saga patterns to solve this challenge step-by-step.</p>
+<p>When you break a monolith into microservices, you lose the ability to use ACID transactions across service boundaries. This can lead to partial updates and inconsistent data - a nightmare for critical business operations.</p>
+<p>Saga patterns provide a solution by coordinating a sequence of local transactions, each in its own service, with compensation actions to handle failures.</p>
+<p>Here’s how to implement them in your system:</p>
+<ol>
+<li>Identify Transaction Boundaries</li>
+</ol>
+<p>Map out business operations that span multiple services. For example, an e-commerce order might touch order, payment, inventory, and shipping services.</p>
+<ol start="2">
+<li>Choose Your Saga Coordination Strategy</li>
+</ol>
+<p>There are two main approaches:</p>
+<p>Choreography: Services publish events that trigger the next step in other services. Simpler to start with but can become harder to track as complexity grows.</p>
+<p>Orchestration: A central coordinator (the Saga orchestrator) explicitly directs each step and handles responses. More structured but introduces a potential single point of failure.</p>
+<ol start="3">
+<li>Design Compensation Actions</li>
+</ol>
+<p>For each step in your saga, define a matching compensation action that can undo its effects if a later step fails.</p>
+<p>Example: If a payment is processed but inventory allocation fails, you need a refund compensation action.</p>
+<ol start="4">
+<li>Implement Idempotence</li>
+</ol>
+<p>Ensure that each step can be safely retried without causing duplicate effects. Use unique identifiers for operations and track their status.</p>
+<ol start="5">
+<li>Handle Timeouts and Partial Failures</li>
+</ol>
+<p>Decide timeout periods for each step and what should happen if services are unresponsive.</p>
+<ol start="6">
+<li>Maintain Saga State</li>
+</ol>
+<p>Persist the progress of each saga to survive process or service restarts. This is essential for reliability.</p>
+<ol start="7">
+<li>Add Monitoring and Visibility</li>
+</ol>
+<p>Implement logging that allows you to track saga execution across services. Consider a central dashboard showing in-progress and failed sagas.</p>
+<ol start="8">
+<li>Test Failure Scenarios</li>
+</ol>
+<p>Deliberately cause failures in each step to verify compensation actions work correctly. Chaos engineering practices are valuable here.</p>
+<ol start="9">
+<li>Start Simple, Then Expand</li>
+</ol>
+<p>Begin with orchestration for critical paths where visibility is important. Use choreography for simpler interactions. You can mix approaches in the same system.</p>
+<p>So remember, sagas aren’t just an architectural pattern - they’re a business continuity strategy for distributed systems.</p>
+<p>Start by identifying critical cross-service transactions, implement compensation for every action, and ensure visibility into the process state.</p>
+<p>The goal isn’t perfection, but resilience - systems that can recover from partial failures gracefully.</p>
+<p>What’s your biggest challenge when implementing distributed transactions?</p>
+<p>Drop your questions in the comments 👇</p>
+<p>#EventDrivenArchitecture #SoftwareArchitecture</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-softwarearchitecture-activity-7303701811427762176-ixen">Implementing Saga Patterns Step-by-Step</a></p>
+<p><img alt="Implementing Saga Patterns Step-by-Step" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.C9-vIZdr_Z1nUvC2.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/softwarearchitecture/" class="astro-sg3lsd66">SoftwareArchitecture</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-06-choreography-vs-orchestration-the-eda-debate/" class="astro-dr56dw7m">Choreography vs Orchestration: The EDA Debate</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-06T00:00:00.000Z" class="astro-2oxtfctb"> Mar 6, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🔄 Choreography vs Orchestration: The dance of microservices
+One approach empowers teams, the other centralizes control.
+Choose wrong and your architecture will collapse under its own weight.</p>
+<p>I’ve seen too many teams blindly choose orchestration because it feels safer. Let me explain why that might be a mistake.</p>
+<p>Orchestration:</p>
+<ul>
+<li>Central coordinator controls the entire process</li>
+<li>Clear visibility of workflow status</li>
+<li>Easier to implement complex error handling</li>
+<li>Creates a single point of failure</li>
+<li>Tightly couples services together</li>
+<li>Becomes a development bottleneck</li>
+</ul>
+<p>Choreography:</p>
+<ul>
+<li>Services react to events autonomously</li>
+<li>True decoupling between services</li>
+<li>Teams can innovate independently</li>
+<li>More complex to monitor end-to-end</li>
+<li>Harder to track process completion</li>
+<li>Requires mature event management</li>
+</ul>
+<p>Here’s what I’ve learned after implementing both approaches:</p>
+<p>Choose Orchestration when:</p>
+<ul>
+<li>You need strict process control</li>
+<li>Transactions must complete in a specific sequence</li>
+<li>Visibility of the entire process is critical</li>
+<li>Teams are less experienced with event-driven patterns</li>
+</ul>
+<p>Choose Choreography when:</p>
+<ul>
+<li>Service autonomy is a priority</li>
+<li>Teams need to evolve independently</li>
+<li>You want to minimize cross-team dependencies</li>
+<li>Your organization values innovation speed</li>
+</ul>
+<p>The reality? Most mature systems use a hybrid approach. Critical processes use orchestration, while day-to-day operations use choreography.</p>
+<p>So remember: This isn’t just a technical decision - it’s about how your teams will collaborate. Choreography enables autonomy but requires maturity. Orchestration provides control but creates dependencies.</p>
+<p>Which approach do you prefer and why?</p>
+<p>Share your experiences in the comments below!</p>
+<p>#EventDrivenArchitecture #Microservices #SystemDesign #Engineering #Technology #Choreography #Orchestration #TechDebate</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-microservices-systemdesign-activity-7303339523852132352-2otn">Choreography vs Orchestration: The EDA Debate</a></p>
+<p><img alt="Choreography vs Orchestration: The EDA Debate" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.B_b_dnfv_24Dohh.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/microservices/" class="astro-sg3lsd66">Microservices</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/systemdesign/" class="astro-sg3lsd66">SystemDesign</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/engineering/" class="astro-sg3lsd66">Engineering</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/technology/" class="astro-sg3lsd66">Technology</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/choreography/" class="astro-sg3lsd66">Choreography</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/orchestration/" class="astro-sg3lsd66">Orchestration</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/techdebate/" class="astro-sg3lsd66">TechDebate</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-05-7-developer-experience-essentials-for-eda/" class="astro-dr56dw7m">7 Developer Experience Essentials for EDA</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-05T00:00:00.000Z" class="astro-2oxtfctb"> Mar 5, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🛠️ The 7 DX practices that make or break your event-driven architecture.
+Great architecture means nothing if developers hate using it.
+Most EDA initiatives fail not because of tech, but because developers can’t easily work with them.</p>
+<p>Developer Experience is the difference between an EDA that thrives and one that withers. Here are the 7 DX practices that I’ve seen in successful EDA implementations:</p>
+<ol>
+<li>Self-Service Discovery</li>
+</ol>
+<p>✅  Developers should be able to find all available events in your ecosystem without asking another human being. They need a searchable catalog showing each event’s purpose, schema, producing service, and consuming services.</p>
+<p>⛔  Your architecture becomes tribal knowledge, creating silos and duplication.</p>
+<ol start="2">
+<li>Local Development Environment</li>
+</ol>
+<p>✅  Developers need to run a scaled-down version of your event infrastructure on their laptops. This should include brokers, schemas, and enough sample data to test their changes.</p>
+<p>⛔  Integration testing becomes a bottleneck, and feedback cycles stretch from minutes to days.</p>
+<ol start="3">
+<li>Schema Validation Tooling</li>
+</ol>
+<p>✅  Provide tools that validate message schemas during development, not just at runtime. Linters, pre-commit hooks, and IDE plugins should catch schema issues before code is even committed.</p>
+<p>⛔  Developers spend hours debugging runtime errors that could have been caught instantly.</p>
+<ol start="4">
+<li>Code Integration</li>
+</ol>
+<p>✅  Integrate schema validation directly into your codebase to prevent drift between documentation and implementation. When schemas and code evolve together, developers can trust that generated documentation accurately reflects the actual behavior.</p>
+<p>⛔  Without this alignment, teams waste countless hours debugging inconsistencies where APIs behave differently than their documented schemas suggest, leading to broken integrations and eroded trust in your platform.</p>
+<ol start="5">
+<li>Event Simulation &#x26; Replay</li>
+</ol>
+<p>✅  Offer tools to simulate specific events on demand and replay production event sequences in development environments.</p>
+<p>⛔  Edge cases and rare event patterns become nearly impossible to test.</p>
+<ol start="6">
+<li>Observability at Every Layer</li>
+</ol>
+<p>✅  Provide unified tools to trace events from production to consumption, with visibility into transformations along the way.</p>
+<p>⛔  Debugging becomes a nightmare of fragmented logs and guesswork.</p>
+<ol start="7">
+<li>Event-First Documentation</li>
+</ol>
+<p>✅  Document your system starting with events rather than services. Show the flow of events through your system with clear diagrams.</p>
+<p>⛔  Developers struggle to understand how their changes impact the broader system.</p>
+<hr>
+<p>Invest in these seven areas of Developer Experience, and you’ll see faster adoption, fewer defects, and more innovation within your event-driven architecture.</p>
+<p>The most elegant architecture is worthless if developers can’t effectively work with it day-to-day.</p>
+<p>Which of these you think is most critical? Did I miss something?</p>
+<p>Share your thoughts in the comments 👇</p>
+<p>#DX #EventDrivenArchitecture</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_dx-eventdrivenarchitecture-activity-7302977057708216321-r36F">7 Developer Experience Essentials for EDA</a></p>
+<p><img alt="7 Developer Experience Essentials for EDA" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.CN_eTK8v_9uHPc.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/dx/" class="astro-sg3lsd66">DX</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-04-eventual-consistency-feature-not-bug/" class="astro-dr56dw7m">Eventual Consistency: Feature, Not Bug</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-04T00:00:00.000Z" class="astro-2oxtfctb"> Mar 4, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>⚡️ Eventual consistency isn’t a compromise, it’s a superpower.
+We’ve been taught to fear inconsistency like it’s a bug.
+But what if strongly consistent systems are what’s actually holding your business back?</p>
+<p>The traditional wisdom says that data inconsistency is dangerous. We’re taught that transactions must be ACID. That every read should reflect the latest write. That consistency is paramount.</p>
+<p>This mental model served us well when businesses operated at human speed and existed in single locations.</p>
+<p>But that world is gone.</p>
+<p>Today’s digital businesses operate globally, 24/7, at massive scale. They need to respond instantly to user actions. They can’t afford to wait for distributed locks or global consensus.</p>
+<p>Yet we still design systems as if consistency is the highest virtue, treating eventual consistency as a necessary evil - a compromise we reluctantly make for performance.</p>
+<p>This is backward thinking.</p>
+<p>Eventual consistency isn’t a weakness to be mitigated - it’s a pattern that reflects how the real world actually works.</p>
+<p>Consider how business operated before computers:</p>
+<ul>
+<li>Sales would make a promise to a customer before checking inventory</li>
+<li>Finance would process payments before orders were fulfilled</li>
+<li>Different departments would work with different, slightly out-of-date information</li>
+<li>Reconciliation was a normal business function, not an error condition</li>
+</ul>
+<p>Humans intuitively understand and work with eventual consistency. We do it every day.</p>
+<p>By embracing eventual consistency as a fundamental design principle rather than a compromise, we unlock system designs that:</p>
+<ul>
+<li>Scale without artificial bottlenecks</li>
+<li>Continue functioning during partial outages</li>
+<li>Allow different components to evolve independently</li>
+<li>Enable truly global operations without speed-of-light limitations</li>
+<li>Match how business stakeholders actually think about their processes</li>
+</ul>
+<p>The key insight: Consistency requirements should be driven by business needs, not technical purism.</p>
+<p>Some operations genuinely need immediate consistency. Many more don’t.</p>
+<p>Mature system design means understanding the difference and applying the right pattern to the right problem.</p>
+<p>The organizations winning at scale aren’t those with the most consistent systems - they’re those that understand exactly how much consistency each business process actually requires.</p>
+<p>So remember, eventual consistency isn’t a compromise we make because distributed systems are hard - it’s a powerful pattern that reflects how businesses naturally operate.</p>
+<p>Instead of fighting against it, design systems that embrace it where appropriate, with compensating mechanisms for handling temporary inconsistencies.</p>
+<p>The question isn’t “how do we make everything consistent?” but “what level of consistency does each business process actually require?”</p>
+<p>Have you embraced eventual consistency in your systems or are you still fighting it?</p>
+<p>Share your experiences in the comments 👇</p>
+<p>#EventDrivenArchitecture #SoftwareArchitecture</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-softwarearchitecture-activity-7302614718311985152-Vpp5">Eventual Consistency: Feature, Not Bug</a></p>
+<p><img alt="Eventual Consistency: Feature, Not Bug" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.CBTVpgqf_17Mvml.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/softwarearchitecture/" class="astro-sg3lsd66">SoftwareArchitecture</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-03-schema-evolution-break-the-compatibility-myth/" class="astro-dr56dw7m">Schema Evolution: Break the Compatibility Myth</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-03T00:00:00.000Z" class="astro-2oxtfctb"> Mar 3, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🔄 Schema evolution shouldn’t be this hard.
+The industry’s obsession with immutable schemas is holding us back.
+Here’s why our current approaches are wrong 👇</p>
+<p>Everyone tells you that once an event schema is published, it should never change.</p>
+<p>“Add new fields, but never modify existing ones.”
+“Create a new version for every change.”
+“Maintain backward compatibility forever.”</p>
+<p>This conventional wisdom has become dogma. And it’s wrong.</p>
+<p>Well, not entirely wrong, but fundamentally misguided about how real systems work.</p>
+<p>The problem isn’t with schema evolution itself, but with our flawed approach to managing it.</p>
+<p>Rigid schemas create artificial constraints that don’t reflect business reality. Your business processes evolve constantly - why shouldn’t your events?</p>
+<p>The root issue is that we’re applying database thinking to messaging systems. In databases, schema changes are painful because they affect all existing data. But events are immutable records of things that happened - they represent the past, not the present.</p>
+<p>Here’s what we should be doing instead:</p>
+<ol>
+<li>
+<p>Design for evolution from day one. Every schema should expect to change.</p>
+</li>
+<li>
+<p>Separate the logical event (what happened in the business) from its physical representation (the JSON/Avro/Protobuf message).</p>
+</li>
+<li>
+<p>Use semantic versioning for events, but tie versions to business meaning changes, not technical representation changes.</p>
+</li>
+<li>
+<p>Implement runtime schema negotiation between producers and consumers rather than hardcoded compatibility.</p>
+</li>
+<li>
+<p>Build consumers that are resilient to change - extracting only the fields they need and gracefully handling missing or unexpected data.</p>
+</li>
+<li>
+<p>Create infrastructure that can transform events between versions when needed.</p>
+</li>
+<li>
+<p>Adopt a contract-testing approach where consumers express what they need, not what producers must provide.</p>
+</li>
+</ol>
+<p>The greatest systems are those that can evolve without breaking. That doesn’t mean avoiding changes - it means designing for change as the constant it truly is.</p>
+<p>By embracing schema evolution rather than fearing it, we build systems that can adapt to business needs instead of constraining them.</p>
+<p>So remember, rigid schema policies create brittle systems that resist the very changes your business needs to evolve.</p>
+<p>Instead of aiming for perfect backward compatibility, aim for graceful evolution where producers can innovate and consumers can adapt.</p>
+<p>The best event systems aren’t those that never change - they’re those designed to change safely.</p>
+<p>What’s your approach to schema evolution? Do you agree or disagree with this perspective?</p>
+<p>Share your thoughts in the comments - I’m genuinely curious about different approaches.</p>
+<p>#EventSchemas #EventDrivenArchitecture #SoftwareDesign #EngineeringPractices #DataEvolution</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventschemas-eventdrivenarchitecture-softwaredesign-activity-7302252341288734720-aBfn">Schema Evolution: Break the Compatibility Myth</a></p>
+<p><img alt="Schema Evolution: Break the Compatibility Myth" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.BBzAnsRQ_2BOm5.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventschemas/" class="astro-sg3lsd66">EventSchemas</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/softwaredesign/" class="astro-sg3lsd66">SoftwareDesign</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/engineeringpractices/" class="astro-sg3lsd66">EngineeringPractices</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/dataevolution/" class="astro-sg3lsd66">DataEvolution</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-02-how-al-is-reshaping-our-event-architectures/" class="astro-dr56dw7m">How Al is Reshaping Our Event Architectures</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-02T00:00:00.000Z" class="astro-2oxtfctb"> Mar 2, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🤖 The AI flywheel effect on Event-Driven Architecture is just beginning.
+We’re not just integrating AI into our event systems.
+AI is fundamentally changing how we design event-driven architectures themselves.</p>
+<p>I’ve been watching an interesting shift in how event-driven architectures are being designed since the rise of advanced AI models. It’s subtle but profound.</p>
+<p>Traditionally, our event schemas were designed primarily for machine consumption. They were structured, normalized, and optimized for processing efficiency. Human readability was secondary.</p>
+<p>But as I observe teams integrating large language models and other AI capabilities into their event-driven systems, I’m noticing a fascinating pattern emerging.</p>
+<p>The events themselves are becoming richer, more contextual, and increasingly designed to capture semantic meaning rather than just state changes.</p>
+<p>Why? Because AI thrives on context and meaning, not just structured data points.</p>
+<p>Here’s what I’m seeing in forward-thinking architectures:</p>
+<ol>
+<li>
+<p>Events are carrying more contextual metadata - not just what changed, but why it changed and what it means to the business</p>
+</li>
+<li>
+<p>Teams are preserving natural language descriptions alongside structured data - recognizing that text can carry nuances that structured schemas cannot</p>
+</li>
+<li>
+<p>Historical context is being embedded in events - allowing AI to understand the sequence and patterns that led to the current state</p>
+</li>
+<li>
+<p>Semantic relationships between events are being explicitly modeled - creating knowledge graphs rather than just event streams</p>
+</li>
+<li>
+<p>Events are increasingly designed to be self-describing - enabling AI systems to understand new event types without human intervention</p>
+</li>
+</ol>
+<p>This shift isn’t just about making AI integration easier. It’s fundamentally changing how we think about events themselves.</p>
+<p>Events are evolving from simple state change notifications to rich, contextual business narratives. They’re becoming the foundation of organizational knowledge, not just integration mechanisms.</p>
+<p>The most exciting part is watching how this creates a virtuous cycle.</p>
+<p>As events become richer to support AI capabilities, those same AI systems help make sense of the increasing complexity, suggesting new event types, identifying patterns, and even helping evolve schemas.</p>
+<p>So in short, what I’m observing is a fundamental shift in event design philosophy - from events as minimal integration points to events as comprehensive business narratives.</p>
+<p>AI isn’t just consuming our events; it’s changing how we think about them.</p>
+<p>The organizations that recognize this shift early will build event-driven architectures that don’t just connect systems but create continuously evolving business intelligence platforms.</p>
+<p>Are you seeing similar patterns in your organization? How is AI influencing your event design?</p>
+<p>Share your observations in the comments - I’m fascinated by how this is playing out in different domains.</p>
+<p>#AI #EventDrivenArchitecture #LLM</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_ai-eventdrivenarchitecture-llm-activity-7301889871084687360-VMek">How Al is Reshaping Our Event Architectures</a></p>
+<p><img alt="How Al is Reshaping Our Event Architectures" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.SYqwOdRT_vQDB5.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/ai/" class="astro-sg3lsd66">AI</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/llm/" class="astro-sg3lsd66">LLM</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-03-01-event-driven-industrial-lot/" class="astro-dr56dw7m">Event-Driven Industrial loT</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-03-01T00:00:00.000Z" class="astro-2oxtfctb"> Mar 1, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🏗️ How IoT is reshaping industrial automation
+The factory floor is becoming event-driven
+This transformation is happening faster than you think</p>
+<p>I recently toured a manufacturing facility in Badajoz (the city where I live in) that completely changed my perspective on industrial IoT.</p>
+<p>What I saw:</p>
+<p>Today’s IIoT Reality:</p>
+<ul>
+<li>Sensors generating terabytes of event data daily</li>
+<li>Real-time anomaly detection preventing equipment failures</li>
+<li>Predictive maintenance reducing downtime</li>
+<li>Digital twins modeling physical processes</li>
+<li>Event-driven workflows automating responses</li>
+</ul>
+<p>The traditional approach to industrial automation was centralized and poll-based. Systems would regularly check equipment status, with significant delays between data collection and action.</p>
+<p>The new event-driven approach:</p>
+<ul>
+<li>Equipment publishes events directly</li>
+<li>Edge computing processes critical events locally</li>
+<li>Cloud systems handle aggregation and analytics</li>
+<li>Responses happen in milliseconds, not minutes</li>
+<li>Systems evolve independently without central coordination</li>
+</ul>
+<p>The business impact has been staggering:</p>
+<ul>
+<li>Reduction of energy consumption</li>
+<li>Improvement of production throughput</li>
+<li>Reduction of unplanned downtime</li>
+<li>Decrease of quality issues</li>
+</ul>
+<p>The key architectural pattern enabling this transformation? The Unified Namespace - a standardized event mesh where all industrial systems publish and subscribe to events using consistent schemas and protocols.</p>
+<p>So in short: Industrial IoT is rapidly moving from centralized, poll-based architectures to distributed, event-driven systems. Companies that embrace this shift are seeing dramatic improvements in efficiency, quality, and cost reduction.</p>
+<p>Are you working with industrial IoT systems?</p>
+<p>Share your experiences in the comments!</p>
+<p>#EventDrivenArchitecture #IoT #IIoT #Engineering #Technology #Industry40 #Manufacturing #UnifiedNamespace</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-iot-iiot-activity-7301527480748679169-jA2A">Event-Driven Industrial loT</a></p>
+<p><img alt="Event-Driven Industrial loT" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.wjGKSjsP_JkRpJ.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/iot/" class="astro-sg3lsd66">IoT</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/iiot/" class="astro-sg3lsd66">IIoT</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/engineering/" class="astro-sg3lsd66">Engineering</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/technology/" class="astro-sg3lsd66">Technology</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/industry40/" class="astro-sg3lsd66">Industry40</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/manufacturing/" class="astro-sg3lsd66">Manufacturing</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/unifiednamespace/" class="astro-sg3lsd66">UnifiedNamespace</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-02-28-eda-culture-present-pain-points-future-promise/" class="astro-dr56dw7m">EDA Culture: Present Pain Points, Future Promise</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-02-28T00:00:00.000Z" class="astro-2oxtfctb"> Feb 28, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🔄 Your EDA is only as good as your culture.
+Technology doesn’t fail, culture does.
+The gap between today’s event-driven struggles and tomorrow’s success isn’t technical - it’s cultural.</p>
+<p>Most organizations approach Event-Driven Architecture purely as a technical implementation.</p>
+<p>Teams build Kafka clusters, deploy messaging middleware, and start publishing events, but nothing fundamentally changes in how the organization operates.</p>
+<p>The symptoms are clear:</p>
+<ul>
+<li>Events are created as afterthoughts, published after database changes</li>
+<li>Event schemas are designed by individual teams with no coordination</li>
+<li>No one can discover what events exist across the organization</li>
+<li>Events reflect system operations, not business semantics</li>
+<li>Teams still think in terms of point-to-point integrations</li>
+<li>Data ownership remains unclear across boundaries</li>
+</ul>
+<p>The root cause? The organization’s culture hasn’t evolved to think in events.</p>
+<p>Organizations that thrive with EDA will embrace a fundamentally different cultural mindset.</p>
+<p>Here’s how the cultural shift looks:</p>
+<ol>
+<li>Events First, Not Last</li>
+</ol>
+<p>Events are byproducts of system operations.</p>
+<p>⏬
+Events are first-class artifacts designed before the systems that produce them.</p>
+<ol start="2">
+<li>Shared Event Language</li>
+</ol>
+<p>Each team uses their own terminology in events.</p>
+<p>⏬
+Events use ubiquitous language shared across the organization.</p>
+<ol start="3">
+<li>Collaborative Event Design</li>
+</ol>
+<p>Events are designed in isolation by producing teams.</p>
+<p>⏬
+Events are designed collaboratively between producers and consumers.</p>
+<ol start="4">
+<li>Event Stewardship</li>
+</ol>
+<p>No one owns the event ecosystem as a whole.</p>
+<p>⏬
+Dedicated roles ensure event quality, discoverability, and evolution.</p>
+<ol start="5">
+<li>Event Thinking</li>
+</ol>
+<p>Teams think in requests, APIs, and databases.</p>
+<p>⏬
+Teams think in event streams, state changes, and reactions.</p>
+<ol start="6">
+<li>Data Sovereignty</li>
+</ol>
+<p>Data ownership is ambiguous or centralized.</p>
+<p>⏬
+Clear domain ownership with events as the boundaries.</p>
+<p>The organizations that succeed with EDA won’t just be those with the best technology.</p>
+<p>They’ll be those who transform their culture to think natively in events.</p>
+<p>So remember, the gap between mediocre and exceptional event-driven architectures isn’t technical - it’s cultural.</p>
+<p>Focus on building an event-thinking culture before worrying about which message broker to use.</p>
+<p>The future belongs to organizations that don’t just implement event infrastructure but fundamentally reshape how they think about and communicate changes across their business.</p>
+<p>How is your organization bridging this cultural gap? What’s working and what’s challenging?</p>
+<p>Share your experiences in the comments - cultural transformation stories welcome!</p>
+<p>#OrganizationalCulture #EventDrivenArchitecture #DigitalTransformation #EngineeringCulture #TechLeadership #ChangeManagement</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_organizationalculture-eventdrivenarchitecture-activity-7301165159400562689-BWZy">EDA Culture: Present Pain Points, Future Promise</a></p>
+<p><img alt="EDA Culture: Present Pain Points, Future Promise" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.DhIbdSym_1GECJt.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/organizationalculture/" class="astro-sg3lsd66">OrganizationalCulture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/digitaltransformation/" class="astro-sg3lsd66">DigitalTransformation</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/engineeringculture/" class="astro-sg3lsd66">EngineeringCulture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/techleadership/" class="astro-sg3lsd66">TechLeadership</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/changemanagement/" class="astro-sg3lsd66">ChangeManagement</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-02-27-monoliths-to-microservices-evolution-not-revolution/" class="astro-dr56dw7m">Monoliths to Microservices: Evolution Not Revolution</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-02-27T00:00:00.000Z" class="astro-2oxtfctb"> Feb 27, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>💥 Monoliths aren’t dying, they’re evolving.
+The journey from monolith to microservices isn’t a migration.
+It’s a transformation that most companies get completely wrong.</p>
+<p>Today’s reality: Most enterprises are struggling with monoliths that have become impossible to change. Deployments take weeks, not minutes. One tiny change creates ripple effects across the entire codebase.</p>
+<p>The knee-jerk reaction? “Let’s break it into microservices!”</p>
+<p>But here’s what typically happens:</p>
+<ol>
+<li>Teams arbitrarily slice the monolith based on the org chart</li>
+<li>They create distributed microservices that still share a database</li>
+<li>What was once a function call is now an HTTP request or message</li>
+<li>The system gets slower and more complex, not better</li>
+<li>Two years later, they’ve created a distributed monolith - the worst of both worlds</li>
+</ol>
+<p>The present approach fails because it treats the problem as primarily technical when it’s actually organizational and conceptual.</p>
+<p>Where we’re headed - the future of monolith decomposition:</p>
+<p>Instead of starting with services, successful teams will start with events and domains.</p>
+<ol>
+<li>
+<p>Event Storming will become the standard first step, mapping the business process flows before writing any code</p>
+</li>
+<li>
+<p>Bounded Contexts will be identified and respected, allowing different parts of the system to use models that make sense for their specific domain</p>
+</li>
+<li>
+<p>Monoliths won’t be deprecated, they’ll be hollowed out - gradually moving functionality to services while maintaining the shell</p>
+</li>
+<li>
+<p>Strangler Fig Pattern will be applied systematically, intercepting calls to the monolith and redirecting them to new services</p>
+</li>
+<li>
+<p>Polyglot persistence will replace shared databases, with each service owning its data</p>
+</li>
+<li>
+<p>Event-Driven Architecture will be the connective tissue, allowing loose coupling between services</p>
+</li>
+<li>
+<p>Evolutionary Architecture practices will ensure systems can adapt to changing business needs</p>
+</li>
+</ol>
+<p>The transition won’t happen overnight.</p>
+<p>The most successful organizations will maintain their monolith while strategically extracting functionality into domains and services that provide the most business value.</p>
+<p>The end state won’t be pure microservices for most organizations. It will be a pragmatic mix of service styles - some micro, some macro, some monolithic - all aligned with business domains and connected through well-defined interfaces and events.</p>
+<p>So in short, breaking monoliths isn’t about making everything smaller - it’s about aligning technical architecture with business domains.</p>
+<p>The future belongs to organizations that can evolve their monoliths intelligently, not those trying to force-fit microservices everywhere.</p>
+<p>The key isn’t the size but the clarity of the boundaries between services and how well they represent the business reality.</p>
+<p>What’s your experience with breaking apart monoliths?</p>
+<p>Share your story in the comments - what worked and what you’d do differently next time.</p>
+<p>#EventDrivenArchitecture #SoftwareArchitecture</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_eventdrivenarchitecture-softwarearchitecture-activity-7300804650109227008-6bbz">Monoliths to Microservices: Evolution Not Revolution</a></p>
+<p><img alt="Monoliths to Microservices: Evolution Not Revolution" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.CsyAtciy_ZYWtkB.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/softwarearchitecture/" class="astro-sg3lsd66">SoftwareArchitecture</a></li></ul></div> </footer> </article> <article class="preview astro-dr56dw7m"> <header class="astro-dr56dw7m"> <h2 class="astro-dr56dw7m"> <a href="/blog/2025-02-26-from-chaos-to-asyncapi-a-standards-journey/" class="astro-dr56dw7m">From Chaos to AsyncAPI: A Standards Journey</a> </h2> <div class="metadata not-content astro-2oxtfctb"> <div class="dates astro-2oxtfctb"> <time datetime="2025-02-26T00:00:00.000Z" class="astro-2oxtfctb"> Feb 26, 2025 </time>  </div> <div class="authors astro-2oxtfctb"> <a href="https://fmvilas.me/" class="author astro-kbhsbk7c"><img src="https://fmvilas.me/static/images/mobile-header.png" alt="Fran Mendez" loading="eager" width="40" height="40" decoding="async" class="astro-kbhsbk7c"><div class="text astro-kbhsbk7c"> <div class="name astro-kbhsbk7c">Fran Mendez</div> <div class="title astro-kbhsbk7c">Creator of AsyncAPI</div> </div> </a>  </div>  </div>  </header> <div class="sl-markdown-content astro-dr56dw7m"> <p>🚀 From chaos to clarity with AsyncAPI.
+Standards create freedom, not limitations.
+When our event-driven architecture was spiraling out of control, we had to create something new.</p>
+<p>In 2015, I was handed what seemed like a dream project: building a product from scratch using event-driven microservices with RabbitMQ. The freedom was exhilarating.</p>
+<p>But that freedom quickly turned into chaos.</p>
+<p>Messages were flowing everywhere. Services were publishing events that nobody was listening to. Other services were expecting events that never came. Documentation was… well, documentation wasn’t 😅</p>
+<p>We were drowning in our own architectural choices.</p>
+<p>Nights and weekends, I kept thinking about how to solve this problem. The industry had OpenAPI (formerly called Swagger) for REST APIs, but nothing comparable for event-driven systems.</p>
+<p>That’s when it hit me - what if we adapted OpenAPI for async communication patterns?</p>
+<p>I started small, just a fork of OpenAPI, modifying it to handle pub/sub patterns, message payloads, and the unique characteristics of event-driven systems.</p>
+<p>When I showed it to my team, something clicked. Suddenly we could:</p>
+<ul>
+<li>Clearly see which services produced and consumed which events</li>
+<li>Validate message payloads against schemas</li>
+<li>Generate client libraries and documentation automatically</li>
+<li>Onboard new team members faster with clear visual representations</li>
+</ul>
+<p>This wasn’t just a technical improvement - it changed how we thought about our system. We shifted from individual service implementations to the events and messages that connected them.</p>
+<p>I started sharing this work at conferences, expecting polite interest at best. Instead, I found a community of engineers facing the exact same problems.</p>
+<p>“This is exactly what we’ve been missing!”
+“We’ve been trying to build something like this internally!”</p>
+<p>That side project became AsyncAPI - now the industry standard for defining event-driven architectures.</p>
+<p>The lesson wasn’t about the specific technology.</p>
+<p>It was about recognizing that transformative standards come from real-world pain points, not academic exercises.</p>
+<p>When you’re struggling with a problem that seems fundamental, that’s not just frustration - it’s an opportunity to create something that might help others beyond your team.</p>
+<p>So remember, standards like AsyncAPI don’t restrict creativity - they create a foundation that enables it.</p>
+<p>They arise from practical problems, not theoretical ones.</p>
+<p>If you’re struggling with complexity that seems unnecessary, maybe the solution isn’t just for you - it might be something the whole industry needs.</p>
+<p>What areas of event-driven architecture do you think still need better standards or tools?</p>
+<p>Share your pain points in the comments - they might be the next opportunity to create something valuable.</p>
+<p>#AsyncAPI #EventDrivenArchitecture #OpenSource #API #Standards #Innovation #TechJourney</p>
+<p>Originally posted on LinkedIn: <a href="https://www.linkedin.com/posts/fmvilas_asyncapi-eventdrivenarchitecture-opensource-activity-7300440413893529600-65VY">From Chaos to AsyncAPI: A Standards Journey</a></p>
+<p><img alt="From Chaos to AsyncAPI: A Standards Journey" width="604" height="604" loading="lazy" decoding="async" src="/_astro/cover.BM8FtW52_1lkQF3.webp" ></p> </div> <footer class="astro-dr56dw7m"> <div class="astro-sg3lsd66"><b class="astro-sg3lsd66">Tags:</b><ul class="astro-sg3lsd66"><li class="astro-sg3lsd66"><a href="/blog/tags/asyncapi/" class="astro-sg3lsd66">AsyncAPI</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/eventdrivenarchitecture/" class="astro-sg3lsd66">EventDrivenArchitecture</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/opensource/" class="astro-sg3lsd66">OpenSource</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/api/" class="astro-sg3lsd66">API</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/standards/" class="astro-sg3lsd66">Standards</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/innovation/" class="astro-sg3lsd66">Innovation</a></li><li class="astro-sg3lsd66"><a href="/blog/tags/techjourney/" class="astro-sg3lsd66">TechJourney</a></li></ul></div> </footer> </article>  </div>    </div> <footer class="sl-flex astro-3yyafb3n"> <div class="meta sl-flex astro-3yyafb3n">   </div> <div class="pagination-links print:hidden astro-u2l5gyhi" dir="ltr">   </div>   </footer>  </div> </div>   </main> </div> </div>  </div> </div>  </body></html> 
